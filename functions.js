@@ -27,6 +27,7 @@ function craftPlanet() {
         $("#canvas").fadeIn()
         $("#matched-planets").fadeIn();
         updateMatchedPlanets(0);
+        $('#sidenav').fadeIn(1500);
     });
 
 
