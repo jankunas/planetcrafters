@@ -2,19 +2,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Montserrat+Subrayada:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="galaxy.css">
     <link rel="stylesheet" href="modal.css">
-    <script src="functions.js"></script>
-
+    <script src="matchedPlanets.js"></script>
     <script src="state.js"></script>
     <script src="mainStar.js"></script>
+    <script src="functions.js"></script>
     <script src="modal.js"></script>
 </head>
 
 
 <div>
     <div id="first-window">
+        <div id="heading">
+            <h1>Planet Crafters</h1>
+            <p>Choose a Star</p>
+        </div>
         <div class="stars"></div>
         <div class="twinkling"></div>
         <div style="text-align:center">
@@ -27,15 +32,24 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Star Name</h4>
-                        <!--TODO - ADD STAR NAME-->
+                        <h4 class="modal-title" id="myModalLabel">Proxima Centauri</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!--TODO - ADD STAR DESCRIPTION-->
-                        <h3>Star Description</h3>
+                        <h3>
+                            Proxima Centauri is a small, low-mass star located 4.244 light-years (1.301 pc) away from the Sun in the
+                            southern constellation of Centaurus.
+                            <br>
+                            <b>Class</b>: M
+                            <br>
+                            <b>Color</b>: Red
+                            <br>
+                            <b>Age</b>: 4.85 billion years
+                            <br>
+                            <b>Luminosity</b>: 588 times less powerful than Sun
+                        </h3>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick='craftPlanet()'>Craft your planet</button>
@@ -44,8 +58,13 @@
             </div>
         </div>
     </div>
+</div>
+<div id="second">
 
 </div>
+<p id="matched-planets">
+
+</p>
 <canvas id="canvas"></canvas>
 <script src="scripts.js"></script>
 

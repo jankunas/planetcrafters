@@ -14,6 +14,11 @@ var options = {
     fLength: 100
 }
 
+state = new State(1);
+
+canvas.onmousemove = function(e) {
+    handleMousemove(e);
+};
 
 
 // ------
@@ -56,12 +61,12 @@ var star = function() {
     }
 }
 
+
+
 for (var i = 0; i < 100; i++) {
     var tempStar = new star();
     stars.push(tempStar);
 }
-
-
 
 // ---------
 // Sun shape
@@ -522,7 +527,6 @@ function render() {
     // ---------------------
     // Draw the sun and moon
     // ---------------------
-
     if(moon1.posZ < 0) {
         drawSun();
         drawPlanet();
@@ -530,7 +534,6 @@ function render() {
         drawPlanet();
         drawSun();
     }
-
 
 
     // ----
@@ -643,7 +646,7 @@ var moon1 = new Basic3DObject(0, 0, 50, 6);
 // ------
 // Custom
 // ------
-
+if (state.id == 2) {}
 requestAnimationFrame(update);
 
 
