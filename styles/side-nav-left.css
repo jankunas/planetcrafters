@@ -1,6 +1,6 @@
 .side-nav-left {
     height: 100%;
-    width: 240px;
+    width: 300px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -16,6 +16,15 @@
     font-size: 25px;
     color: #818181;
     display: block;
+}
+
+.side-nav-left h5 {
+    color: #ffff1a;
+}
+
+.side-nav-left p {
+    text-align: justify;
+    color: white;
 }
 
 .side-nav-left a:hover {
