@@ -1,21 +1,3 @@
-function handleMousemove(e) {
-    var mousePos = getMousePos(canvas, e);
-    var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-    console.log(message);
-}
-
-function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-    };
-}
-
-function handleStarSelect(e) {
-    console.log("lol")
-}
-
 $(document).ready(function() {
     $("#canvas").hide();
     $("#matched-planets").hide();
@@ -43,6 +25,6 @@ function craftPlanet() {
 
 var numberOfPlanetsFound = 0;
 
-function showResult() {
+function updateFoundPlanetResult() {
     $('#planets-found').text("Number of planets found: " + ++numberOfPlanetsFound);
 }

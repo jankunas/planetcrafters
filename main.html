@@ -145,14 +145,13 @@
 </div>
 <div class="side-nav-left" id="side-nav-left" hidden>
         <div class="sidecontainer">
-            <h3 id="planets-found">Number of planets found: 0</h3>
+            <h2 id="planets-found">Number of planets found: 0</h2>
             <h3>Hey! Did you know that a planet with a similar mass and radius was already discovered by humans. Check it out</h3>
             <p><b>HIP 65426 b</b> is 385 light-years from Earth. It was discovered on 6 July 2017 by the Max Planck Institute for Astronomy using the Spectro-Polarimetric High-Contrast Exoplanet Research (SPHERE) instrument belonging to the European Southern Observatory (ESO).
                 HIP 65426 b is around 14 million years old, and was expected to still have a debris disk. However, it doesn't have a debris disk, despite its young age, causing it to not fit current models for planetary formation. It is around 92 AU from its parent star, with a possible dusty atmosphere.
                 <br>
                 HIP 65426 b is 2860 times heavier than Earth. Did you know that planets that are 10 times the mass of Earth will have enough gravity to suck up the hydrogen and helium surrounding it as it is forming and become a gas giant?
             </p>
-            <button type="button" class="btn btn-primary" onclick='showResult()'>Update</button>
         </div>
     </div>
 </div>
@@ -229,6 +228,7 @@
         };
         function handleLeftSideBar() {
             if (isSimilarPlanetFound()) {
+                updateFoundPlanetResult();
                 $('#side-nav-left').fadeIn(1500);
             } else {
                 $('#side-nav-left').fadeOut(300);
