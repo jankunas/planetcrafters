@@ -29,19 +29,22 @@ function craftPlanet() {
         updateMatchedPlanets(0);
         $('#sidenav').fadeIn(1500);
 
-        // $('#side-nav-left').fadeIn(1500);
+        $('#side-nav-left').fadeIn(1500);
     });
 
+    // const Http = new XMLHttpRequest();
+    // const url='https://peqf53vhml.execute-api.eu-central-1.amazonaws.com/default//hello_world?mass=2850.0&radius=16.5';
+    // Http.setRequestHeader('Access-Control-Allow-Origin','*');
+    // Http.open("GET", url);
+    // Http.send();
+    //
+    // Http.onreadystatechange = (e) => {
+    //     console.log(Http.responseText)
+    // }
+}
 
-    const Http = new XMLHttpRequest();
-    const url='https://peqf53vhml.execute-api.eu-central-1.amazonaws.com/default//hello_world?mass=2850.0&radius=16.5';
-    Http.setRequestHeader('Access-Control-Allow-Origin','*');
-    Http.open("GET", url);
-    Http.send();
+var numberOfPlanetsFound = 0;
 
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
-
-
+function showResult() {
+    $('#planets-found').text("Number of planets found: " + ++numberOfPlanetsFound);
 }
