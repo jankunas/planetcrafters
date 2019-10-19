@@ -289,10 +289,14 @@
         }
 
         function nextPlanet() {
-            $('#first-window').fadeIn(1500, function () {
-            });
-            $('#sidenav').hide();
-            resetToDefaults();
+            $("#matched-planets").fadeOut();
+            $('#sidenav').fadeOut();
+            $('#side-nav-left').fadeOut();
+            $("#canvas").fadeOut(1000, function () {
+                $('#first-window').fadeIn(1500);
+                resetToDefaults();
+                updateMatchedPlanets(0);
+            })
         }
 
         function handleLeftSideBar() {
