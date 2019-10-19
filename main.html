@@ -287,8 +287,10 @@
 
         function showFailModal() {
             decreaseLives();
-            $("#failModal").modal('show');
-            $("#failModal").appendTo("body");
+            if (lives > 0) {
+                $("#failModal").modal('show');
+                $("#failModal").appendTo("body");
+            }
         }
 
         function gameOver() {
