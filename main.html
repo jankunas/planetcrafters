@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
     <link rel="stylesheet" type="text/css" href="styles/slider.css">
     <link rel="stylesheet" type="text/css" href="styles/switch.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 
@@ -66,6 +67,9 @@
         </div>
     </div>
     <div class="sidenav" id="sidenav" hidden>
+            <i class="fas fa-heart live heart1" id="heart1" style="font-size:48px;color:red;"></i>
+            <i class="fas fa-heart live heart2" id="heart2" style="font-size:48px;color:red;"></i>
+            <i class="fas fa-heart live heart3" id="heart3" style="font-size:48px;color:red;"></i>
             <div class="sidecontainer">
                 <h2>Craft a Planet!</h2>
                 <div>
@@ -111,11 +115,13 @@
                         <input id="gasInput" type="checkbox">
                         <span class="sliderswitch round"></span>
                     </label>
-                    </div>
-            </div>
+                </div>
+
+                <button class="button button4" onclick='inhabitPlanet()'>Inhabit the planet</button>
+            </div>  
         </div>
-    </div>
-    <div class="side-nav-left" id="side-nav-left" hidden>
+</div>
+<div class="side-nav-left" id="side-nav-left" hidden>
         <div class="sidecontainer">
             <h3 id="planets-found">Number of planets found: 0</h3>
             <h3>Hey! Did you know that a planet with a similar mass and radius was already discovered by humans. Check it out</h3>
@@ -141,6 +147,8 @@
             gas: false,
         }
 
+        var lives = 3;
+
         var massValue = document.getElementById("massValue");
         var massInput = document.getElementById("massInput");
         var radiusValue = document.getElementById("radiusValue");
@@ -160,6 +168,7 @@
         }
         orbitInput.oninput = function() {
             orbitValue.innerHTML = this.value;
+            changeOrbit(this.value);
         }
         albedoInput.oninput = function() {
             albedoValue.innerHTML = this.checked ? "Yes" : "No";
@@ -183,9 +192,15 @@
 
             gasInput.value = defaults.gas;
             gasValue.innerHTML = defaults.gas ? "Yes" : "No";
+
+            lives = 3;
         }
 
         resetToDefaults();
+
+        function inhabitPlanet() {
+
+        };
     </script>
 
 

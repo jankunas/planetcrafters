@@ -7,11 +7,15 @@ canvas.width = document.body.clientWidth * 2;
 canvas.height = document.body.clientHeight * 2;
 var context = canvas.getContext('2d');
 
+function changeOrbit(value) {
+    options.fLength = 80 - (value * 0.3);
+}
+
 var options = {
     rotate: 0.02, // Speed and direction of the rotation
     alpha: 30,
     refZ: 400,
-    fLength: 100
+    fLength: 80 //
 }
 
 state = new State(1);
