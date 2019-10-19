@@ -65,6 +65,30 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="successLabel">Oh no!</h4>
+                            <h3 class="modal-title" id="successLabel">Your planet is not habitable</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>
+                                It is thought that if the planet is too hot, water will boil and the atmosphere
+                                (including water vapour) might escape from the planet.
+                                Modify your planet features and try again!
+                            </h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
     <div class="sidenav" id="sidenav" hidden>
             <i class="fas fa-heart live heart1" id="heart1" style="font-size:48px;color:red;"></i>
@@ -192,7 +216,7 @@
         resetToDefaults();
 
         function inhabitPlanet() {
-
+            $('#successModal').show();
         };
     </script>
 
