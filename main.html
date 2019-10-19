@@ -1,7 +1,60 @@
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="galaxy.css">
+    <link rel="stylesheet" href="modal.css">
+    <script src="functions.js"></script>
+
+    <script src="state.js"></script>
+    <script src="mainStar.js"></script>
+    <script src="modal.js"></script>
 </head>
 
-<canvas></canvas>
 
+<div>
+    <div id="first-window">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div style="text-align:center">
+            <a href="#" data-toggle="modal" data-target="#largeModal">
+                <span id="mainStar" class="dot"></span>
+            </a>
+        </div>
+
+        <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Star Name</h4>
+                        <!--TODO - ADD STAR NAME-->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--TODO - ADD STAR DESCRIPTION-->
+                        <h3>Star Description</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick='craftPlanet()'>Craft your planet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<canvas id="canvas"></canvas>
 <script src="scripts.js"></script>
+
+
+
+
+
+
+
+
+
+
