@@ -75,7 +75,7 @@
                 <div>
                     <h3 class="inputValue">Planet Mass</h3>
                     <h4 class="inputValue"><span id="massValue"></span><span> Earth mass</span></h4>
-                    <input id="massInput" type="range" min="0.0002" max="2" step="0.0002" class="slider" >
+                    <input id="massInput" type="range" min="0.0002" max="3000" step="0.02" class="slider" >
                 </div>
 
                 <div>
@@ -199,8 +199,19 @@
         resetToDefaults();
 
         function inhabitPlanet() {
+            if (isSimilarPlanetFound()) {
+                $('#side-nav-left').fadeIn(1500);
+            } else {
+                $('#side-nav-left').fadeOut(300);
+            }
+
 
         };
+        function isSimilarPlanetFound() {
+            var massValue = $("#massValue").text();
+            var radiusValue = $("#radiusValue").text();
+            return (massValue > 2700 && massValue < 2950) && (radiusValue > 15 && radiusValue < 18);
+        }
     </script>
 
 
