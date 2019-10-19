@@ -65,56 +65,78 @@
         </div>
 
         <div class="modal fade" id="failModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="failLabel">Your planet is not habitable</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>
+                            It is thought that if the planet is too hot, water will boil and the atmosphere
+                            (including water vapour) might escape from the planet.
+                            Modify your planet features and try again!
+                        </h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Try again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="lostModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="failLabel">Your planet is not habitable</h4>
+                            <h4 class="modal-title" id="lostLabel">Game over</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <h3>
-                                It is thought that if the planet is too hot, water will boil and the atmosphere
-                                (including water vapour) might escape from the planet.
-                                Modify your planet features and try again!
+                                You journey to colonize the galaxy has came to an abrupt end.
                             </h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Try again</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='nextPlanet()'>Start over</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="successModal" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="successLabel">Congratulations! You have created a wonderful planet to live in!
-                                    </h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <h3>
-                                        Your planet is in optimal distance from a host star considering its albedo and the amount of greenhouse gas. It is thought that water is essential for life to exist. The temperature in your planet is in optimal range for water to remain in liquid form.
-                                        Continue your journey by experimenting with other star systems.                                        
-                                </h3>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='nextPlanet()'>To the next planet!</button>
-                            </div>
-                        </div>
+        <div class="modal fade" id="successModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="successLabel">Congratulations! You have created a wonderful planet to live in!
+                            </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>
+                                Your planet is in optimal distance from a host star considering its albedo and the amount of greenhouse gas. It is thought that water is essential for life to exist. The temperature in your planet is in optimal range for water to remain in liquid form.
+                                Continue your journey by experimenting with other star systems.                                        
+                        </h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='nextPlanet()'>To the next planet!</button>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
     <div class="sidenav" id="sidenav" hidden>
             <div class="sidecontainer">
                 <i class="fas fa-heart live heart1" id="heart1" style="font-size:48px;color:red;"></i>
                 <i class="fas fa-heart live heart2" id="heart2" style="font-size:48px;color:red;"></i>
                 <i class="fas fa-heart live heart3" id="heart3" style="font-size:48px;color:red;"></i>
+                <br>
                 <h2>Craft a Planet!</h2>
                 <div>
                     <h3 class="inputValue">Planet Mass</h3>
@@ -237,12 +259,15 @@
             gasValue.innerHTML = defaults.gas ? "Yes" : "No";
 
             lives = 3;
+            
+            $("#heart1").show();
+            $("#heart2").show();
+            $("#heart3").show();
         }
 
         resetToDefaults();
 
         function inhabitPlanet() {
-            
             if (orbitInput.value > 18 && orbitInput.value < 58) {
                 showSuccessModal();
             } else if (orbitInput.value == 18 && albedoInput.checked && !gasInput.checked) {
@@ -266,6 +291,11 @@
             $("#failModal").appendTo("body");
         }
 
+        function gameOver() {
+            $("#lostModal").modal('show');
+            $("#lostModal").appendTo("body");
+        }
+
         function decreaseLives() {
             if (lives > 0) {
                 lives = lives -1;
@@ -282,6 +312,7 @@
                     $("#heart1").hide();
                     $("#heart2").hide();
                     $("#heart3").hide();
+                    gameOver();
                     break;
                 default:
                     // code block
