@@ -28,6 +28,8 @@ function craftPlanet() {
         $("#matched-planets").fadeIn();
         updateMatchedPlanets(0);
         $('#sidenav').fadeIn(1500);
+
+        // $('#side-nav-left').fadeIn(1500);
     });
 
 

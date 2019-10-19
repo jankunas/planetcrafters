@@ -20,6 +20,9 @@
       </map>
     </option>
   </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="MavenBuildProjectComponent">
     <option name="mavenExecutable" value="" />
     <option name="Settings File" value="C:\Users\sarunasj\.m2\settings.xml" />

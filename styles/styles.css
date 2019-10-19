@@ -42,12 +42,16 @@ canvas {
     font-family: 'Fira Code', monospace;
 }
 
-h4 {
+.modal-content h4 {
     font-size: 30px;
+    color: black;
+    text-align: left;
 }
 
-h3 {
+.modal-content h3 {
     font-size: 20px;
+    color: black;
+    text-align: left;
 }
 
 
