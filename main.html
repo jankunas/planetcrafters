@@ -64,12 +64,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="successModal" role="dialog">
+        <div class="modal fade" id="failModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <!--<h4 class="modal-title" id="successLabel">Oh no!</h4>-->
-                            <h3 class="modal-title" id="successLabel">Your planet is not habitable</h3>
+                            <h4 class="modal-title" id="failLabel">Your planet is not habitable</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -87,12 +86,35 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="successModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="successLabel">Congratulations! You have created a wonderful planet to live in!
+                                    </h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>
+                                        Your planet is in optimal distance from a host star considering its albedo and the amount of greenhouse gas. It is thought that water is essential for life to exist. The temperature in your planet is in optimal range for water to remain in liquid form.
+                                        Continue your journey by experimenting with other star systems.                                        
+                                </h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='nextPlanet()'>To the next planet!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
     <div class="sidenav" id="sidenav" hidden>
-            <i class="fas fa-heart live heart1" id="heart1" style="font-size:48px;color:red;"></i>
-            <i class="fas fa-heart live heart2" id="heart2" style="font-size:48px;color:red;"></i>
-            <i class="fas fa-heart live heart3" id="heart3" style="font-size:48px;color:red;"></i>
             <div class="sidecontainer">
+                <i class="fas fa-heart live heart1" id="heart1" style="font-size:48px;color:red;"></i>
+                <i class="fas fa-heart live heart2" id="heart2" style="font-size:48px;color:red;"></i>
+                <i class="fas fa-heart live heart3" id="heart3" style="font-size:48px;color:red;"></i>
                 <h2>Craft a Planet!</h2>
                 <div>
                     <h3 class="inputValue">Planet Mass</h3>
@@ -220,12 +242,59 @@
         resetToDefaults();
 
         function inhabitPlanet() {
+            
+            if (orbitInput.value > 18 && orbitInput.value < 58) {
+                showSuccessModal();
+            } else if (orbitInput.value == 18 && albedoInput.checked && !gasInput.checked) {
+                showSuccessModal();
+            } else if (orbitInput.value == 58 && !albedoInput.checked && gasInput.checked) {
+                showSuccessModal();
+            } else {
+                showFailModal();
+            }
+            handleLeftSideBar();
+        };
+
+        function showSuccessModal() {
             $("#successModal").modal('show');
             $("#successModal").appendTo("body");
-            handleLeftSideBar();
+        }
 
+        function showFailModal() {
+            decreaseLives();
+            $("#failModal").modal('show');
+            $("#failModal").appendTo("body");
+        }
 
-        };
+        function decreaseLives() {
+            if (lives > 0) {
+                lives = lives -1;
+            }
+            switch(lives) {
+                case 2:
+                    $("#heart1").hide();
+                    break;
+                case 1:
+                    $("#heart1").hide();
+                    $("#heart2").hide();
+                    break;
+                case 0:
+                    $("#heart1").hide();
+                    $("#heart2").hide();
+                    $("#heart3").hide();
+                    break;
+                default:
+                    // code block
+            }
+        }
+
+        function nextPlanet() {
+            $('#first-window').fadeIn(1500, function () {
+            });
+            $('#sidenav').hide();
+            resetToDefaults();
+        }
+
         function handleLeftSideBar() {
             if (isSimilarPlanetFound()) {
                 updateFoundPlanetResult();
@@ -234,6 +303,7 @@
                 $('#side-nav-left').fadeOut(300);
             }
         }
+
         function isSimilarPlanetFound() {
             var massValue = $("#massValue").text();
             var radiusValue = $("#radiusValue").text();
