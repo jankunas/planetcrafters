@@ -11,8 +11,6 @@
     <script src="state.js"></script>
     <script src="mainStar.js"></script>
     <script src="functions.js"></script>
-    <script src="modal.js"></script>
-
 
     <!--Sidebar-->
     <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
@@ -66,11 +64,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+        <div class="modal fade" id="successModal" role="dialog">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="successLabel">Oh no!</h4>
+                            <!--<h4 class="modal-title" id="successLabel">Oh no!</h4>-->
                             <h3 class="modal-title" id="successLabel">Your planet is not habitable</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -223,12 +221,19 @@
         resetToDefaults();
 
         function inhabitPlanet() {
+            $("#successModal").modal('show');
+            $("#successModal").appendTo("body");
+            handleLeftSideBar();
+
+
+        };
+        function handleLeftSideBar() {
             if (isSimilarPlanetFound()) {
                 $('#side-nav-left').fadeIn(1500);
             } else {
                 $('#side-nav-left').fadeOut(300);
             }
-        };
+        }
         function isSimilarPlanetFound() {
             var massValue = $("#massValue").text();
             var radiusValue = $("#radiusValue").text();
