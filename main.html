@@ -10,6 +10,12 @@
     <script src="state.js"></script>
     <script src="mainStar.js"></script>
     <script src="modal.js"></script>
+
+
+    <!--Sidebar-->
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="styles/slider.css">
+    <link rel="stylesheet" type="text/css" href="styles/switch.css">
 </head>
 
 
@@ -44,12 +50,115 @@
             </div>
         </div>
     </div>
+    <div class="sidenav" id="sidenav" hidden>
+            <div class="sidecontainer">
+                <h2>Craft a Planet!</h2>
+                <div>
+                    <h3 class="inputValue">Planet Mass</h3>
+                    <h4 class="inputValue"><span id="massValue"></span><span> Earth mass</span></h4>
+                    <input id="massInput" type="range" min="0.0002" max="2" step="0.0002" class="slider" >
+                </div>
+        
+                <div>
+                    <h3 class="inputValue">Planet radius</h3>
+                    <div class="inputValue">
+                        <h3><span id="radiusValue"></span><span> Earth radius</span></h3>
+                    </div>
+                    <input id="radiusInput" type="range" min="0.5" max="76" step="0.5" class="slider" >
+                    </div>
+                <div>
 
+                <div>
+                    <h3 class="inputValue">Orbit</h3>
+                    <div class="inputValue">
+                        <h3><span id="orbitValue"></span><span> x10^-3 Astronomical units(AU)</span></h3>
+                    </div>
+                    <input id="orbitInput" type="range" min="8" max="69" step="5" class="slider" >
+                    </div>
+
+                <div>
+                    <h3 class="inputValue">Albedo</h3>
+                    <div class="inputValue">
+                        <h3 id="albedoValue"></h3>
+                    </div>
+                    <label class="switch">
+                        <input id="albedoInput" type="checkbox">
+                        <span class="sliderswitch round"></span>
+                    </label>
+                </div>
+
+                <div>
+                    <h3 class="inputValue">Greenhouse gas</h3>
+                    <div class="inputValue">
+                        <h3 id="gasValue"></h3>
+                    </div>
+                    <label class="switch">
+                        <input id="gasInput" type="checkbox">
+                        <span class="sliderswitch round"></span>
+                    </label>
+                    </div>
+            </div>  
+        </div>
 </div>
+
 <canvas id="canvas"></canvas>
 <script src="scripts.js"></script>
 
+<script>
+        var defaults = {
+            mass: 0.0002,
+            radius: 0.5,
+            orbit: 8,
+            albedo: false,
+            gas: false,
+        }
+    
+        var massValue = document.getElementById("massValue");
+        var massInput = document.getElementById("massInput");
+        var radiusValue = document.getElementById("radiusValue");
+        var radiusInput = document.getElementById("radiusInput");
+        var orbitValue = document.getElementById("orbitValue");
+        var orbitInput = document.getElementById("orbitInput");
+        var albedoValue = document.getElementById("albedoValue");
+        var albedoInput = document.getElementById("albedoInput");
+        var gasValue = document.getElementById("gasValue");
+        var gasInput = document.getElementById("gasInput");
+        
+        massInput.oninput = function() {
+            massValue.innerHTML = this.value;
+        }
+        radiusInput.oninput = function() {
+            radiusValue.innerHTML = this.value;
+        }
+        orbitInput.oninput = function() {
+            orbitValue.innerHTML = this.value;
+        }
+        albedoInput.oninput = function() {
+            albedoValue.innerHTML = this.checked ? "Yes" : "No";
+        }
+        gasInput.oninput = function() {
+            gasValue.innerHTML = this.checked ? "Yes" : "No";
+        }
+    
+        function resetToDefaults() {
+            massValue.innerHTML  = defaults.mass;
+            massInput.value = defaults.mass;
 
+            radiusValue.innerHTML  = defaults.radius;
+            radiusInput.value = defaults.radius;
+
+            orbitValue.innerHTML  = defaults.orbit;
+            orbitInput.value = defaults.orbit;
+
+            albedoInput.value = defaults.albedo;
+            albedoValue.innerHTML = defaults.albedo ? "Yes" : "No";
+
+            gasInput.value = defaults.gas;
+            gasValue.innerHTML = defaults.gas ? "Yes" : "No";
+        }
+
+        resetToDefaults();
+    </script>
 
 
 

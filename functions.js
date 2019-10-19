@@ -19,5 +19,6 @@ function handleStarSelect(e) {
 function craftPlanet() {
     $('#largeModal').modal('hide');
     $('#first-window').fadeOut(1500);
+    $('#sidenav').fadeIn(1500);
 }
 
