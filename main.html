@@ -108,7 +108,7 @@
                     <div class="modal-body">
                         <h3>
                                 Your planet is in optimal distance from a host star considering its albedo and the amount of greenhouse gas. It is thought that water is essential for life to exist. The temperature in your planet is in optimal range for water to remain in liquid form.
-                                Continue your journey by experimenting with other star systems.                                        
+                                Continue your journey by experimenting with other star systems.
                         </h3>
                     </div>
                     <div class="modal-footer">
@@ -172,7 +172,7 @@
 
                 <br>
                 <button class="button button4" onclick='inhabitPlanet()'>Inhabit the planet</button>
-            </div>  
+            </div>
         </div>
 </div>
 <div class="side-nav-left" id="side-nav-left" hidden>
@@ -247,7 +247,7 @@
             gasValue.innerHTML = defaults.gas ? "High" : "Low";
 
             lives = 3;
-            
+
             $("#heart1").show();
             $("#heart2").show();
             $("#heart3").show();
@@ -289,11 +289,11 @@
 
         $('#lostModal').on('hide.bs.modal', function(e){
             startOver();
-        }); 
+        });
 
         $('#successModal').on('hide.bs.modal', function(e){
             nextPlanet();
-        }); 
+        });
 
         function decreaseLives() {
             if (lives > 0) {

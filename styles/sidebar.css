@@ -1,6 +1,6 @@
 .sidenav {
     height: 100%;
-    width: 240px;
+    width: 350px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -73,15 +73,15 @@ body {
   }
   
   .heart3 {
-    right: 40px;
+    right: 80px;
   }
   
   .heart2 {
-    right: 100px;
+    right: 140px;
   }
   
   .heart1 {
-    right: 160px;
+    right: 200px;
   }
 
   .button4 {border-radius: 12px;}
