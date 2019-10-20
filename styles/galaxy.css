@@ -71,14 +71,26 @@ header a, a:visited {
 .dot {
     height: 25px;
     width: 25px;
-    background-color: #bbb;
+    background-color: #fff;
     border-radius: 50%;
     display: block;
     z-index: 4;
     margin-left: 400px;
     margin-top: 400px;
     position: absolute;
+    -webkit-transition: all 0.5s linear;
+
+    box-shadow:
+            inset 0 0 50px #fff,      /* inner white */
+            inset 1000px 0 80px #f0f,   /* inner left magenta short */
+            inset -20px 0 80px #0ff,  /* inner right cyan short */
+            inset 20px 0 300px #f0f,  /* inner left magenta broad */
+            inset -20px 0 300px #0ff, /* inner right cyan broad */
+            0 0 30px #fff,            /* outer white */
+            -10px 0 24px #0ff,        /* outer left magenta */
+            10px 0 24px #0ff
 }
+
 
 .stars, .twinkling, .clouds {
     position:absolute;

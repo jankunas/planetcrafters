@@ -1,6 +1,6 @@
 var matchedPlanets = 0;
 
 function updateMatchedPlanets(numberOfPlanets) {
-    $("#matched-planets").innerHTML = numberOfPlanets;
+    $('#planets-found').text("Number of planets found: " + numberOfPlanets);
 }
 

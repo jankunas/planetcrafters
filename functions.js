@@ -1,7 +1,31 @@
 $(document).ready(function() {
     $("#canvas").hide();
     $("#matched-planets").hide();
+
+    document.getElementById("mainStar").addEventListener("mouseover", function( event ) {
+        event.target.style.boxShadow = "inset 0 0 50px #fff,      /* inner white */\n" +
+            "            inset 1000px 0 80px #0ff,   /* inner left magenta short */\n" +
+            "            inset -20px 0 80px #0ff,  /* inner right cyan short */\n" +
+            "            inset 20px 0 300px #0ff,  /* inner left magenta broad */\n" +
+            "            inset -20px 0 300px #0ff, /* inner right cyan broad */\n" +
+            "            0 0 30px #fff,            /* outer white */\n" +
+            "            -10px 0 24px #0ff,        /* outer left magenta */\n" +
+            "            10px 0 24px #0ff";
+    }, false);
+
+    document.getElementById("mainStar").addEventListener("mouseout", function( event ) {
+        event.target.style.boxShadow = "inset 0 0 50px #fff,      /* inner white */\n" +
+            "            inset 1000px 0 80px #f0f,   /* inner left magenta short */\n" +
+            "            inset -20px 0 80px #0ff,  /* inner right cyan short */\n" +
+            "            inset 20px 0 300px #f0f,  /* inner left magenta broad */\n" +
+            "            inset -20px 0 300px #0ff, /* inner right cyan broad */\n" +
+            "            0 0 30px #fff,            /* outer white */\n" +
+            "            -10px 0 24px #0ff,        /* outer left magenta */\n" +
+            "            10px 0 24px #0ff";
+    });
+
 });
+
 
 function craftPlanet() {
     $('#largeModal').modal('hide');

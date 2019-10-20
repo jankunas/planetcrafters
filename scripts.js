@@ -20,10 +20,6 @@ var options = {
 
 state = new State(1);
 
-canvas.onmousemove = function(e) {
-    handleMousemove(e);
-};
-
 
 // ------
 // Colors
