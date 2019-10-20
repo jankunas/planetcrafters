@@ -8,7 +8,7 @@ canvas.height = document.body.clientHeight * 2;
 var context = canvas.getContext('2d');
 
 function changeOrbit(value) {
-    options.fLength = 80 - (value * 0.3);
+    options.fLength = 80 - (value * 0.4);
 }
 
 // Planet parameters
@@ -27,10 +27,8 @@ function changeGas(value) {
 }
 
 function changeCheekSize(value) {
-    console.log(value);
-    console.log(moonCheekSize);
     moonCheekSize = 1 + value/1000;
-    console.log(moonCheekSize);
+    changeCheekColorBasedOnMass();
 }
 
 function changePlanetColor() {
@@ -38,18 +36,35 @@ function changePlanetColor() {
         colorMoon = '#FD0E35';
         colorMoonShadow = '#C62D42';
         colorMoonCheeks = '#C62D42';
+        changeCheekColorBasedOnMass();
     } else if (albedo && !gas) {
         colorMoon = '#0066FF';
         colorMoonShadow = '#1560BD';
         colorMoonCheeks = '#1560BD';
+        changeCheekColorBasedOnMass();
     } else if (!albedo && gas) {
         colorMoon = '#FF9980';
         colorMoonShadow = '#E6735C';
         colorMoonCheeks = '#E6735C';
+        changeCheekColorBasedOnMass();
     } else if (!albedo && !gas) {
         colorMoon = '#38b4c1';
         colorMoonShadow = '#279aad';
         colorMoonCheeks = '#279aad';
+    }
+}
+
+
+function changeCheekColorBasedOnMass() {
+    //Cheek size corelates to size
+    if (moonCheekSize > 1 && moonCheekSize < 1.5) {
+        colorMoonCheeks = '#FF9980';
+    } else if (moonCheekSize > 1.5 && moonCheekSize < 2) {
+        colorMoonCheeks = '#E6735C';
+    } else if (moonCheekSize > 2 && moonCheekSize < 2.5) {
+        colorMoonCheeks = '#CC553D';
+    } else if (moonCheekSize > 3 && moonCheekSize < 4) {
+        colorMoonCheeks = '#B33B24';
     }
 }
 
