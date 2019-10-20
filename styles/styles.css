@@ -40,6 +40,7 @@ canvas {
 
 .modal-content {
     font-family: 'Fira Code', monospace;
+    background: #ddd;
 }
 
 .modal-content h4 {
