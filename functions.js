@@ -26,7 +26,6 @@ $(document).ready(function() {
 
 });
 
-
 function craftPlanet() {
     $('#largeModal').modal('hide');
     $('#first-window').fadeOut(1500, function () {
