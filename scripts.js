@@ -11,6 +11,13 @@ function changeOrbit(value) {
     options.fLength = 80 - (value * 0.4);
 }
 
+function resetParameters() {
+    moonCheekSize = 1;
+    albedo = false; 
+    gas = false;
+    changePlanetColor();
+}
+
 // Planet parameters
 var albedo = false;
 var gas = false;
