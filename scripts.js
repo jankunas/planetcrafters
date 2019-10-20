@@ -11,11 +11,53 @@ function changeOrbit(value) {
     options.fLength = 80 - (value * 0.3);
 }
 
+// Planet parameters
+var albedo = false;
+var gas = false;
+
+//Planet color
+function changeAlbedo(value) {
+    albedo = value;
+    changePlanetColor();
+}
+
+function changeGas(value) {
+    gas = value;
+    changePlanetColor();
+}
+
+function changeCheekSize(value) {
+    console.log(value);
+    console.log(moonCheekSize);
+    moonCheekSize = 1 + value/1000;
+    console.log(moonCheekSize);
+}
+
+function changePlanetColor() {
+    if (albedo && gas) {
+        colorMoon = '#FD0E35';
+        colorMoonShadow = '#C62D42';
+        colorMoonCheeks = '#C62D42';
+    } else if (albedo && !gas) {
+        colorMoon = '#0066FF';
+        colorMoonShadow = '#1560BD';
+        colorMoonCheeks = '#1560BD';
+    } else if (!albedo && gas) {
+        colorMoon = '#FF9980';
+        colorMoonShadow = '#E6735C';
+        colorMoonCheeks = '#E6735C';
+    } else if (!albedo && !gas) {
+        colorMoon = '#38b4c1';
+        colorMoonShadow = '#279aad';
+        colorMoonCheeks = '#279aad';
+    }
+}
+
 var options = {
     rotate: 0.02, // Speed and direction of the rotation
     alpha: 30,
     refZ: 400,
-    fLength: 80 //
+    fLength: 80,
 }
 
 state = new State(1);
@@ -23,14 +65,21 @@ state = new State(1);
 
 // ------
 // Colors
-// ------
+// -----
 
 var colorBackground = '#01445a';
 var colorPlanet = '#fdc23e';
 var colorPlanetInternal = 'black';
+
+// ------
+// Planet custom parameters
+// -----
 var colorMoon = '#38b4c1';
+var colorMoonShadow = '#279aad';
+var colorMoonCheeks = '#279aad';
 var colorMoonInternal = 'black';
 var colorMoonOutline = '#0b303f';
+var moonCheekSize = 1;
 
 
 
@@ -350,7 +399,9 @@ function drawPlanet() {
     context.save();
 
     context.beginPath();
-    context.fillStyle = '#279aad';
+    //Planet bottom right color
+    //context.fillStyle = '#279aad';
+    context.fillStyle = colorMoonShadow;
     context.arc(
         moon1.screenX,
         moon1.screenY,
@@ -364,6 +415,8 @@ function drawPlanet() {
     context.clip();
 
     context.beginPath();
+    //Planet color
+    //context.fillStyle = colorMoon;
     context.fillStyle = colorMoon;
     context.arc(
         moon1.screenX - (2.6 * moon1.scale),
@@ -384,11 +437,11 @@ function drawPlanet() {
     // -------------
 
     context.beginPath();
-    context.fillStyle = '#279aad';
+    context.fillStyle = colorMoonCheeks;
     context.arc(
         moon1.screenX + (3 * moon1.scale),
         moon1.screenY + (1 * moon1.scale),
-        0.4 * moon1.scale,
+        0.4 * moon1.scale * moonCheekSize,
         0,
         Math.PI * 2,
         false
@@ -396,11 +449,11 @@ function drawPlanet() {
     context.fill();
 
     context.beginPath();
-    context.fillStyle = '#279aad';
+    context.fillStyle = colorMoonCheeks;
     context.arc(
         moon1.screenX - (3 * moon1.scale),
         moon1.screenY + (1 * moon1.scale),
-        0.4 * moon1.scale,
+        0.4 * moon1.scale * moonCheekSize,
         0,
         Math.PI * 2,
         false

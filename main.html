@@ -214,6 +214,7 @@
         var gasInput = document.getElementById("gasInput");
 
         massInput.oninput = function() {
+            changeCheekSize(this.value);
             massValue.innerHTML = this.value;
         }
         radiusInput.oninput = function() {
@@ -224,9 +225,11 @@
             changeOrbit(this.value);
         }
         albedoInput.oninput = function() {
+            changeAlbedo(this.checked);
             albedoValue.innerHTML = this.checked ? "High" : "Low";
         }
         gasInput.oninput = function() {
+            changeGas(this.checked);
             gasValue.innerHTML = this.checked ? "High" : "Low";
         }
 
@@ -268,7 +271,7 @@
             handleLeftSideBar();
         };
 
-        //Modals
+        //Modals start
         function showSuccessModal() {
             $("#successModal").modal('show');
             $("#successModal").appendTo("body");
@@ -293,7 +296,8 @@
 
         $('#successModal').on('hide.bs.modal', function(e){
             nextPlanet();
-        });
+        }); 
+        //
 
         function decreaseLives() {
             if (lives > 0) {
